@@ -116,6 +116,15 @@ class Setad {
 
 		return mask
 	}
+
+	when = (that: Setad): Setad => {
+		let diff: number
+		diff = this.date.valueOf() - that.date.valueOf()
+		let date: Setad
+		date = new Setad(diff)
+		console.log(date.mask('DAY'))
+		return date
+	}
 }
 
 // LeftPad expects an integer, and outputs a string.
