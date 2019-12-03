@@ -71,48 +71,48 @@ class Setad {
 	mask = (mask: string): string => {
 		const fullYear = this.getYear().toString()
 		const truncYear = clipString(fullYear, 2, true)
-		mask.replace('YEAR', fullYear)
-		mask.replace('year', truncYear)
+		mask = mask.replace('YEAR', fullYear)
+		mask = mask.replace('year', truncYear)
 
 		const bareMonth = this.getMonth().toString()
 		const paddedMonth = leftPad(bareMonth, 2)
-		mask.replace('MONTH', paddedMonth)
-		mask.replace('month', bareMonth)
+		mask = mask.replace('MONTH', paddedMonth)
+		mask = mask.replace('month', bareMonth)
 
 		const fullMonthName = this.readMonth()
 		const truncMonthName = clipString(fullMonthName, 3)
-		mask.replace('MNAME', fullMonthName)
-		mask.replace('mname', truncMonthName)
+		mask = mask.replace('MNAME', fullMonthName)
+		mask = mask.replace('mname', truncMonthName)
 
 		const bareDay = this.getDay().toString()
 		const paddedDay = leftPad(bareDay, 2)
-		mask.replace('DAY', paddedDay)
-		mask.replace('day', bareDay)
+		mask = mask.replace('DAY', paddedDay)
+		mask = mask.replace('day', bareDay)
 
 		const fullDayName = this.readDay()
 		const truncDayName = clipString(fullDayName, 3)
-		mask.replace('DNAME', fullDayName)
-		mask.replace('dname', truncDayName)
+		mask = mask.replace('DNAME', fullDayName)
+		mask = mask.replace('dname', truncDayName)
 
 		const bareHour = this.getHour().toString()
 		const paddedHour = leftPad(bareHour, 2)
-		mask.replace('HOUR', paddedHour)
-		mask.replace('hour', bareHour)
+		mask = mask.replace('HOUR', paddedHour)
+		mask = mask.replace('hour', bareHour)
 
 		const bareMinute = this.getMinute().toString()
 		const paddedMinute = leftPad(bareMinute, 2)
-		mask.replace('MINUTE', paddedMinute)
-		mask.replace('minute', bareMinute)
+		mask = mask.replace('MINUTE', paddedMinute)
+		mask = mask.replace('minute', bareMinute)
 
 		const bareSecond = this.getSecond().toString()
 		const paddedSecond = leftPad(bareSecond, 2)
-		mask.replace('SECOND', paddedSecond)
-		mask.replace('second', bareSecond)
+		mask = mask.replace('SECOND', paddedSecond)
+		mask = mask.replace('second', bareSecond)
 
 		const bareMillisecond = this.getMillisecond().toString()
 		const paddedMillisecond = leftPad(bareMillisecond, 4)
-		mask.replace('MILLI', paddedMillisecond)
-		mask.replace('milli', bareMillisecond)
+		mask = mask.replace('MILLI', paddedMillisecond)
+		mask = mask.replace('milli', bareMillisecond)
 
 		return mask
 	}
@@ -124,8 +124,8 @@ const leftPad = (inputNum: string, digits: number): string => {
 	let output: string = ''
 	// `size` is the number of digits that the number has.
 	const size: number = inputNum.length
-	if (size > digits) {
-		const diff: number = size - digits
+	if (digits > size) {
+		const diff: number = digits - size
 		output = '0'.repeat(diff)
 	}
 	return `${output}${inputNum}`
