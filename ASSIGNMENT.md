@@ -1,23 +1,11 @@
 # FEW 2.1 - Assignment 7 - Date Lib
-
----
-
-Move this up to lesson 8
-Add assignment 9 Add tests
-Add Assignment 10 CI, Bundle, and Publish
-
----
-
 ## Description
-
 Dates are super important. You'll use them often. The goal of this assignment is to become more familiar with the Date object it's methods and how to work with Dates.
 
 ## Why Do this assignment?
-
 You'll make use the JS Date Object often. Building a library around dates will give you a better understanding of it works and what you can do with it.
 
 ## Project requirements
-
 Your job is to make a class that wraps the Date object. Your class should have a Date it keeps internally. It should be able to instantiate itself with the same parameters that are used with the Date Object.
 
 **Challenge 1**
@@ -175,13 +163,4 @@ Use `.toPrimitive()` to allow your Data object to return a String or Number depe
 https://javascript.info/object-toprimitive
 
 ### Deliverable
-
 After completing the challenges above post a link to your npm package on npm.
-
-### Due date
-
-Class 8
-
-## Assessing the assignment
-
-[Assignment Name Rubric](./assignment-07-rubric.md)
