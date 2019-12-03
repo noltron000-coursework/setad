@@ -1,6 +1,6 @@
-export class Setad {
+class Setad {
 	date: Date
-	constructor(...args: number[]) {
+	constructor(...args: any[]) {
 		// @ts-ignore
 		this.date = new Date(...args)
 	}
@@ -110,20 +110,70 @@ export class Setad {
 		mask = mask.replace('second', bareSecond)
 
 		const bareMillisecond = this.getMillisecond().toString()
-		const paddedMillisecond = leftPad(bareMillisecond, 4)
+		const paddedMillisecond = leftPad(bareMillisecond, 3)
 		mask = mask.replace('MILLI', paddedMillisecond)
 		mask = mask.replace('milli', bareMillisecond)
 
 		return mask
 	}
 
-	when = (that: Setad): Setad => {
+	when = (that: Setad): string => {
 		let diff: number
 		diff = this.date.valueOf() - that.date.valueOf()
-		let date: Setad
-		date = new Setad(diff)
-		console.log(date.mask('DAY'))
-		return date
+
+		// get addon english stuff for output
+		let endOfPhrase: string
+		if (diff < 0) {
+			endOfPhrase = 'from now'
+		} else {
+			endOfPhrase = 'ago'
+		}
+		// take absolute value of difference;
+		// its not human readable if negative.
+		diff = Math.abs(diff)
+		const milliseconds: number = diff % 1000
+		diff = Math.floor(diff / 1000)
+		const seconds: number = diff % 60
+		diff = Math.floor(diff / 60)
+		const minutes: number = diff % 60
+		diff = Math.floor(diff / 60)
+		const hours: number = diff % 24
+		diff = Math.floor(diff / 24)
+		const days: number = diff % 365
+		diff = Math.floor(diff / 365)
+		const years: number = diff
+
+		let baseOfPhrase: string = ''
+		let finalPhrase: string = ''
+		if (diff > 0) {
+			// go backwards from largest to smallest
+			if (years > 0) {
+				baseOfPhrase += `${years} years, `
+			}
+			if (days > 0) {
+				baseOfPhrase += `${days} days, `
+			}
+			if (hours > 0) {
+				baseOfPhrase += `${hours} hours, `
+			}
+			if (minutes > 0) {
+				baseOfPhrase += `${minutes} minutes, `
+			}
+			if (seconds > 0) {
+				baseOfPhrase += `${seconds} seconds, `
+			}
+			if (milliseconds > 0) {
+				baseOfPhrase += `${milliseconds} milliseconds, `
+			}
+			// trim final comma-space combo
+			baseOfPhrase = baseOfPhrase.slice(0, -2)
+			// complete the phrase
+			finalPhrase = `${baseOfPhrase} ${endOfPhrase}`
+		} else {
+			finalPhrase = 'right now'
+		}
+
+		return finalPhrase
 	}
 }
 
