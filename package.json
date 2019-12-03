@@ -1,29 +1,29 @@
 {
-  "name": "setad",
-  "version": "0.0.0",
-  "description": "date library",
-  "main": "setad.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/noltron000/setad.git"
-  },
-  "keywords": [
-    "dates",
-    "date",
-    "times",
-    "time",
-    "months",
-    "month",
-    "years",
-    "year"
-  ],
-  "author": "noltron000",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/noltron000/setad/issues"
-  },
-  "homepage": "https://github.com/noltron000/setad#readme"
+	"name": "setad",
+	"version": "0.0.1",
+	"description": "date library",
+	"main": "setad.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/noltron000/setad.git"
+	},
+	"keywords": [
+		"dates",
+		"date",
+		"times",
+		"time",
+		"months",
+		"month",
+		"years",
+		"year"
+	],
+	"author": "noltron000",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/noltron000/setad/issues"
+	},
+	"homepage": "https://github.com/noltron000/setad#readme"
 }
