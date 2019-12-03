@@ -1,4 +1,4 @@
-class Setad {
+export class Setad {
 	date: Date
 	constructor(...args: number[]) {
 		// @ts-ignore
